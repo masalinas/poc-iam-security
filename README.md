@@ -21,7 +21,7 @@ Poc Olive Keycloak Authentication SpringBoot Microservice
 
 ![Create Roles](captures/client_roles.png "Client Roles")
 
-## Create user
+## Create users
 - **name**: admin with **role**: admin
 - **name**: operator with **role**: operator
 - **name**: user with **role**: user
