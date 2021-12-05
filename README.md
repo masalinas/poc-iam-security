@@ -48,15 +48,27 @@ Postman login inside test realm with the credentials user/user
 curl -d 'client_id=admin-cli' -d 'refresh_token=<REFRESH_TOKEN>' 'http://localhost:8080/auth/realms/<CLIENT_ID>/protocol/openid-connect/logout'
 ```
 
-## Test Logout with postman
+## Test Logout with Postman
 Postman login inside test realm with the credentials user/user
 
 ![Logout Postman Test](captures/postman_logout.png "Logout Postman Test")
 
-## Test get users from realm with postman
+## Test Get Users from realm with Postman
 
 ![Users Postman Test](captures/postman_users.png "Users Postman Test")
 
-## Test get clients from realm with postman
+## Test Create User from realm with Postman
+
+![Create User Postman Test](captures/postman_create_users.png "Create User Postman Test")
+
+## Test Update User from realm with Postman
+
+![Update User Postman Test](captures/postman_update_user.png "Update User Postman Test")
+
+## Test Delete User from realm with Postman
+
+![Delete User Postman Test](captures/postman_delete_user.png "Delete User Postman Test")
+
+## Test get clients from realm with Postman
 
 ![Clients Postman Test](captures/postman_clients.png "Clients Postman Test")
