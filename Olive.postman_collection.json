@@ -1,0 +1,186 @@
+{
+	"info": {
+		"_postman_id": "40e68a05-251a-447f-9084-82ce46f1ea1e",
+		"name": "Olive",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"user\",\n    \"password\": \"user\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/iam/poc/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"iam",
+						"poc",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Logout",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/iam/poc/eyJhbGciOiJIUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJlNzg0ZjlkOS1kNDcwLTQxNDAtYTgyYy1kMjJmZWIzNjljMjEifQ.eyJleHAiOjE2Mzg3NDQ4ODcsImlhdCI6MTYzODc0MzA4NywianRpIjoiNjhkMDI0YTUtMDE3Ni00OGQ4LTljOTctMzZlMzA2YmUyNTlhIiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL2F1dGgvcmVhbG1zL3BvYyIsImF1ZCI6Imh0dHA6Ly9sb2NhbGhvc3Q6ODA4MC9hdXRoL3JlYWxtcy9wb2MiLCJzdWIiOiJiNzA1ODhiZC1kNjZmLTRjMTAtYTE4Yi1kMmM0MWQ0NTZiODIiLCJ0eXAiOiJSZWZyZXNoIiwiYXpwIjoiYWRtaW4tY2xpIiwic2Vzc2lvbl9zdGF0ZSI6ImYyZGI2OWUwLTlhMWEtNDQ1Ny05ZTZkLTFjZmJlYzE4NjY2MCIsInNjb3BlIjoicHJvZmlsZSBlbWFpbCJ9.gmLVvEg5RVGyWO0EO-Z-1bs-0p2-gawOp9AzeUIHfQk/logout",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"iam",
+						"poc",
+						"eyJhbGciOiJIUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJlNzg0ZjlkOS1kNDcwLTQxNDAtYTgyYy1kMjJmZWIzNjljMjEifQ.eyJleHAiOjE2Mzg3NDQ4ODcsImlhdCI6MTYzODc0MzA4NywianRpIjoiNjhkMDI0YTUtMDE3Ni00OGQ4LTljOTctMzZlMzA2YmUyNTlhIiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL2F1dGgvcmVhbG1zL3BvYyIsImF1ZCI6Imh0dHA6Ly9sb2NhbGhvc3Q6ODA4MC9hdXRoL3JlYWxtcy9wb2MiLCJzdWIiOiJiNzA1ODhiZC1kNjZmLTRjMTAtYTE4Yi1kMmM0MWQ0NTZiODIiLCJ0eXAiOiJSZWZyZXNoIiwiYXpwIjoiYWRtaW4tY2xpIiwic2Vzc2lvbl9zdGF0ZSI6ImYyZGI2OWUwLTlhMWEtNDQ1Ny05ZTZkLTFjZmJlYzE4NjY2MCIsInNjb3BlIjoicHJvZmlsZSBlbWFpbCJ9.gmLVvEg5RVGyWO0EO-Z-1bs-0p2-gawOp9AzeUIHfQk",
+						"logout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getUsers",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/iam/poc/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"iam",
+						"poc",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createUser",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"enabled\": true,\n\t\"username\": \"Miguel\",\n\t\"firstName\": \"Salinas\",\n\t\"lastName\": \"Gsncedo\",\n\t\"email\": \"masalinas@oferto.io\",\n\t\"attributes\": {\"roles\": [\"OPERATOR\", \"USER\"]}\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/iam/poc/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"iam",
+						"poc",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateUser",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"enabled\": true,\n\t\"username\": \"xxx\",\n\t\"firstName\": \"XXX\",\n\t\"lastName\": \"yyyyyyyyyyyy\",\n\t\"email\": \"xxx@yyy.com\",\n\t\"attributes\": {\"zzz\": [\"rrr\", \"uuu\"]}\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/iam/poc/users/f66ba6c8-0999-4fc2-accd-089e1b930265",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"iam",
+						"poc",
+						"users",
+						"f66ba6c8-0999-4fc2-accd-089e1b930265"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteUser",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/iam/poc/users/bb92c33d-7ea1-45e0-90e8-a49954681c33",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"iam",
+						"poc",
+						"users",
+						"bb92c33d-7ea1-45e0-90e8-a49954681c33"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getClients",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/iam/poc/clients",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"iam",
+						"poc",
+						"clients"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
