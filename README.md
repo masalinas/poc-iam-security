@@ -1,5 +1,5 @@
 # Description
-Poc Olive Keycloak Authentication SpringBoot Microservice
+Poc Keycloak Authentication/Authorization SpringBoot Microservice
 
 # Keycloak resources: realm, client, roles and users
 
