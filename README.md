@@ -28,9 +28,12 @@ Poc Keycloak Authentication/Authorization SpringBoot Microservice
 
 ![User Roles](captures/user_roles.png "User Roles")
 
-The **admin** user add all realm realm-manager roles
+The **admin** user has **admin** rol in **poc** client and **all roles** from **realm-manager** client
 
-![Realm Manager Roles](captures/real-manager-roles.png "Realm Manager Roles") to use and role client management
+![Realm Manager Roles](captures/roles_real-manager.png "Realm Manager Roles")
+
+![Poc Roles](captures/roles_poc.png "Poc Roles") to use and role client management
+
 
 ## Client configuration
 We could obtain the client configuration from client to used insides springboot microserice
