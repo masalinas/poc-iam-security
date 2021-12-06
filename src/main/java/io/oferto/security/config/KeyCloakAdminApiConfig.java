@@ -13,8 +13,6 @@ public class KeyCloakAdminApiConfig {
     //final static String realm = "test";
     final static String clientId = "admin-cli";
     //final static String clientSecret = "01819628-948c-4220-9e6d-e56da5f34d56";
-    //final static String userName = "realm-management";
-    //final static String password = "management";
     final static String userName = "admin";
     final static String password = "admin";
     
