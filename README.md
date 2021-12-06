@@ -62,27 +62,37 @@ Postman login inside test realm with the credentials user/user
 
 ![Logout Postman Test](captures/postman_logout.png "Logout Postman Test")
 
-## Test Get Users from realm with Postman
+## Test Get all users from realm with Postman
 This endpoint it's securized with **access token** and **admin, operator** role
 
 ![Users Postman Test](captures/postman_users.png "Users Postman Test")
 
-## Test Create User from realm with Postman
+## Test Get a user from realm with Postman
+This endpoint it's securized with **access token** and **admin** role
+
+![User Postman Test](captures/postman_user.png "User Postman Test")
+
+## Test Get roles By user from realm with Postman
+This endpoint it's securized with **access token** and **admin, operator** role
+
+![User Roles Postman Test](captures/postman_roles.png "User Roles Postman Test")
+
+## Test Create user from realm with Postman
 This endpoint it's securized with **access token** and **admin** role
 
 ![Create User Postman Test](captures/postman_create_users.png "Create User Postman Test")
 
-## Test Update User from realm with Postman
+## Test Update user from realm with Postman
 This endpoint it's securized with **access token** and **admin** role
 
 ![Update User Postman Test](captures/postman_update_user.png "Update User Postman Test")
 
-## Test Delete User from realm with Postman
+## Test Remove user from realm with Postman
 This endpoint it's securized with **access token** and **admin** role
 
 ![Delete User Postman Test](captures/postman_delete_user.png "Delete User Postman Test")
 
-## Test get clients from realm with Postman
+## Test Get clients from realm with Postman
 This endpoint it's securized with **access token** and **admin, operator** role
 
 ![Clients Postman Test](captures/postman_clients.png "Clients Postman Test")

@@ -6,6 +6,58 @@
 	},
 	"item": [
 		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"admin\",\n    \"password\": \"admin\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/iam/poc/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"iam",
+						"poc",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Logout",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/iam/poc/eyJhbGciOiJIUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJlNzg0ZjlkOS1kNDcwLTQxNDAtYTgyYy1kMjJmZWIzNjljMjEifQ.eyJleHAiOjE2Mzg3ODk2NzAsImlhdCI6MTYzODc4Nzg3MCwianRpIjoiYzVlM2M0YTktOTEzOC00MTNlLWExZTMtOGU1ZGU0ODIyNGQwIiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL2F1dGgvcmVhbG1zL3BvYyIsImF1ZCI6Imh0dHA6Ly9sb2NhbGhvc3Q6ODA4MC9hdXRoL3JlYWxtcy9wb2MiLCJzdWIiOiI5OWUxNjEzMy1mNjIyLTQzMTQtYjNkMC1mNGYxNTMyNTQxYjMiLCJ0eXAiOiJSZWZyZXNoIiwiYXpwIjoidGVzdCIsInNlc3Npb25fc3RhdGUiOiJiNGQyMGE5Ni1kNzZkLTRhZDUtOTY3Yi1iOWFkOTM2NjlhN2YiLCJzY29wZSI6InByb2ZpbGUgZW1haWwifQ.4OV6XRfYt_qVkdMCBXZ8-cIw1SLKw0hvO4XXmc_7NPA/logout",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"iam",
+						"poc",
+						"eyJhbGciOiJIUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJlNzg0ZjlkOS1kNDcwLTQxNDAtYTgyYy1kMjJmZWIzNjljMjEifQ.eyJleHAiOjE2Mzg3ODk2NzAsImlhdCI6MTYzODc4Nzg3MCwianRpIjoiYzVlM2M0YTktOTEzOC00MTNlLWExZTMtOGU1ZGU0ODIyNGQwIiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL2F1dGgvcmVhbG1zL3BvYyIsImF1ZCI6Imh0dHA6Ly9sb2NhbGhvc3Q6ODA4MC9hdXRoL3JlYWxtcy9wb2MiLCJzdWIiOiI5OWUxNjEzMy1mNjIyLTQzMTQtYjNkMC1mNGYxNTMyNTQxYjMiLCJ0eXAiOiJSZWZyZXNoIiwiYXpwIjoidGVzdCIsInNlc3Npb25fc3RhdGUiOiJiNGQyMGE5Ni1kNzZkLTRhZDUtOTY3Yi1iOWFkOTM2NjlhN2YiLCJzY29wZSI6InByb2ZpbGUgZW1haWwifQ.4OV6XRfYt_qVkdMCBXZ8-cIw1SLKw0hvO4XXmc_7NPA",
+						"logout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "getClients",
 			"request": {
 				"method": "GET",
@@ -260,58 +312,6 @@
 						"poc",
 						"users",
 						"b860a819-a9cd-4839-9459-f2b55f77f229"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Login",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n    \"username\": \"admin\",\n    \"password\": \"admin\"\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://localhost:8081/iam/poc/login",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8081",
-					"path": [
-						"iam",
-						"poc",
-						"login"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Logout",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8081/iam/poc/eyJhbGciOiJIUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJlNzg0ZjlkOS1kNDcwLTQxNDAtYTgyYy1kMjJmZWIzNjljMjEifQ.eyJleHAiOjE2Mzg3ODk2NzAsImlhdCI6MTYzODc4Nzg3MCwianRpIjoiYzVlM2M0YTktOTEzOC00MTNlLWExZTMtOGU1ZGU0ODIyNGQwIiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL2F1dGgvcmVhbG1zL3BvYyIsImF1ZCI6Imh0dHA6Ly9sb2NhbGhvc3Q6ODA4MC9hdXRoL3JlYWxtcy9wb2MiLCJzdWIiOiI5OWUxNjEzMy1mNjIyLTQzMTQtYjNkMC1mNGYxNTMyNTQxYjMiLCJ0eXAiOiJSZWZyZXNoIiwiYXpwIjoidGVzdCIsInNlc3Npb25fc3RhdGUiOiJiNGQyMGE5Ni1kNzZkLTRhZDUtOTY3Yi1iOWFkOTM2NjlhN2YiLCJzY29wZSI6InByb2ZpbGUgZW1haWwifQ.4OV6XRfYt_qVkdMCBXZ8-cIw1SLKw0hvO4XXmc_7NPA/logout",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8081",
-					"path": [
-						"iam",
-						"poc",
-						"eyJhbGciOiJIUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJlNzg0ZjlkOS1kNDcwLTQxNDAtYTgyYy1kMjJmZWIzNjljMjEifQ.eyJleHAiOjE2Mzg3ODk2NzAsImlhdCI6MTYzODc4Nzg3MCwianRpIjoiYzVlM2M0YTktOTEzOC00MTNlLWExZTMtOGU1ZGU0ODIyNGQwIiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL2F1dGgvcmVhbG1zL3BvYyIsImF1ZCI6Imh0dHA6Ly9sb2NhbGhvc3Q6ODA4MC9hdXRoL3JlYWxtcy9wb2MiLCJzdWIiOiI5OWUxNjEzMy1mNjIyLTQzMTQtYjNkMC1mNGYxNTMyNTQxYjMiLCJ0eXAiOiJSZWZyZXNoIiwiYXpwIjoidGVzdCIsInNlc3Npb25fc3RhdGUiOiJiNGQyMGE5Ni1kNzZkLTRhZDUtOTY3Yi1iOWFkOTM2NjlhN2YiLCJzY29wZSI6InByb2ZpbGUgZW1haWwifQ.4OV6XRfYt_qVkdMCBXZ8-cIw1SLKw0hvO4XXmc_7NPA",
-						"logout"
 					]
 				}
 			},
