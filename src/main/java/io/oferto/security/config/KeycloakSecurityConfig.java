@@ -34,7 +34,8 @@ public class KeycloakSecurityConfig extends KeycloakWebSecurityConfigurerAdapter
                 .authorizeRequests()
                 .antMatchers("/iam/**/login", "/iam/**/logout").permitAll()
                 .antMatchers("/iam/*").hasRole("admin")
-                .antMatchers("/iam/**/users").hasAnyRole("admin", "operator")
+                .antMatchers("/iam/**/users/*").hasAnyRole("admin", "operator")
+                .antMatchers("/iam/**/roles/*").hasAnyRole("admin", "operator")
                 .antMatchers("/iam/**/clients").hasAnyRole("admin", "operator")
                 .anyRequest()
                 .authenticated();
