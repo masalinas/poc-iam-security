@@ -4,6 +4,8 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Map.Entry;
 
+import javax.ws.rs.core.Response;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -29,8 +31,6 @@ import org.keycloak.admin.client.resource.UsersResource;
 import org.keycloak.representations.idm.ClientRepresentation;
 import org.keycloak.representations.idm.MappingsRepresentation;
 import org.keycloak.representations.idm.UserRepresentation;
-
-import javax.ws.rs.core.Response;
 
 @RestController
 @RequestMapping("iam")
