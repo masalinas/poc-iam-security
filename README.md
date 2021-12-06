@@ -62,6 +62,11 @@ Postman login inside test realm with the credentials user/user
 
 ![Logout Postman Test](captures/postman_logout.png "Logout Postman Test")
 
+## Test Get clients from realm with Postman
+This endpoint it's securized with **access token** and **admin, operator** role
+
+![Clients Postman Test](captures/postman_clients.png "Clients Postman Test")
+
 ## Test Get all users from realm with Postman
 This endpoint it's securized with **access token** and **admin, operator** role
 
@@ -91,8 +96,3 @@ This endpoint it's securized with **access token** and **admin** role
 This endpoint it's securized with **access token** and **admin** role
 
 ![Delete User Postman Test](captures/postman_delete_user.png "Delete User Postman Test")
-
-## Test Get clients from realm with Postman
-This endpoint it's securized with **access token** and **admin, operator** role
-
-![Clients Postman Test](captures/postman_clients.png "Clients Postman Test")
