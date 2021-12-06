@@ -6,21 +6,12 @@
 	},
 	"item": [
 		{
-			"name": "Login",
+			"name": "getClients",
 			"request": {
-				"method": "POST",
+				"method": "GET",
 				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n    \"username\": \"user\",\n    \"password\": \"user\"\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
 				"url": {
-					"raw": "http://localhost:8081/iam/poc/login",
+					"raw": "http://localhost:8081/iam/poc/clients",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -29,29 +20,7 @@
 					"path": [
 						"iam",
 						"poc",
-						"login"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Logout",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8081/iam/poc/eyJhbGciOiJIUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJlNzg0ZjlkOS1kNDcwLTQxNDAtYTgyYy1kMjJmZWIzNjljMjEifQ.eyJleHAiOjE2Mzg3NDQ4ODcsImlhdCI6MTYzODc0MzA4NywianRpIjoiNjhkMDI0YTUtMDE3Ni00OGQ4LTljOTctMzZlMzA2YmUyNTlhIiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL2F1dGgvcmVhbG1zL3BvYyIsImF1ZCI6Imh0dHA6Ly9sb2NhbGhvc3Q6ODA4MC9hdXRoL3JlYWxtcy9wb2MiLCJzdWIiOiJiNzA1ODhiZC1kNjZmLTRjMTAtYTE4Yi1kMmM0MWQ0NTZiODIiLCJ0eXAiOiJSZWZyZXNoIiwiYXpwIjoiYWRtaW4tY2xpIiwic2Vzc2lvbl9zdGF0ZSI6ImYyZGI2OWUwLTlhMWEtNDQ1Ny05ZTZkLTFjZmJlYzE4NjY2MCIsInNjb3BlIjoicHJvZmlsZSBlbWFpbCJ9.gmLVvEg5RVGyWO0EO-Z-1bs-0p2-gawOp9AzeUIHfQk/logout",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8081",
-					"path": [
-						"iam",
-						"poc",
-						"eyJhbGciOiJIUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJlNzg0ZjlkOS1kNDcwLTQxNDAtYTgyYy1kMjJmZWIzNjljMjEifQ.eyJleHAiOjE2Mzg3NDQ4ODcsImlhdCI6MTYzODc0MzA4NywianRpIjoiNjhkMDI0YTUtMDE3Ni00OGQ4LTljOTctMzZlMzA2YmUyNTlhIiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL2F1dGgvcmVhbG1zL3BvYyIsImF1ZCI6Imh0dHA6Ly9sb2NhbGhvc3Q6ODA4MC9hdXRoL3JlYWxtcy9wb2MiLCJzdWIiOiJiNzA1ODhiZC1kNjZmLTRjMTAtYTE4Yi1kMmM0MWQ0NTZiODIiLCJ0eXAiOiJSZWZyZXNoIiwiYXpwIjoiYWRtaW4tY2xpIiwic2Vzc2lvbl9zdGF0ZSI6ImYyZGI2OWUwLTlhMWEtNDQ1Ny05ZTZkLTFjZmJlYzE4NjY2MCIsInNjb3BlIjoicHJvZmlsZSBlbWFpbCJ9.gmLVvEg5RVGyWO0EO-Z-1bs-0p2-gawOp9AzeUIHfQk",
-						"logout"
+						"clients"
 					]
 				}
 			},
@@ -162,12 +131,21 @@
 			"response": []
 		},
 		{
-			"name": "getClients",
+			"name": "Login",
 			"request": {
-				"method": "GET",
+				"method": "POST",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"user\",\n    \"password\": \"user\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
 				"url": {
-					"raw": "http://localhost:8081/iam/poc/clients",
+					"raw": "http://localhost:8081/iam/poc/login",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -176,7 +154,29 @@
 					"path": [
 						"iam",
 						"poc",
-						"clients"
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Logout",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/iam/poc/eyJhbGciOiJIUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJlNzg0ZjlkOS1kNDcwLTQxNDAtYTgyYy1kMjJmZWIzNjljMjEifQ.eyJleHAiOjE2Mzg3NDQ4ODcsImlhdCI6MTYzODc0MzA4NywianRpIjoiNjhkMDI0YTUtMDE3Ni00OGQ4LTljOTctMzZlMzA2YmUyNTlhIiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL2F1dGgvcmVhbG1zL3BvYyIsImF1ZCI6Imh0dHA6Ly9sb2NhbGhvc3Q6ODA4MC9hdXRoL3JlYWxtcy9wb2MiLCJzdWIiOiJiNzA1ODhiZC1kNjZmLTRjMTAtYTE4Yi1kMmM0MWQ0NTZiODIiLCJ0eXAiOiJSZWZyZXNoIiwiYXpwIjoiYWRtaW4tY2xpIiwic2Vzc2lvbl9zdGF0ZSI6ImYyZGI2OWUwLTlhMWEtNDQ1Ny05ZTZkLTFjZmJlYzE4NjY2MCIsInNjb3BlIjoicHJvZmlsZSBlbWFpbCJ9.gmLVvEg5RVGyWO0EO-Z-1bs-0p2-gawOp9AzeUIHfQk/logout",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"iam",
+						"poc",
+						"eyJhbGciOiJIUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJlNzg0ZjlkOS1kNDcwLTQxNDAtYTgyYy1kMjJmZWIzNjljMjEifQ.eyJleHAiOjE2Mzg3NDQ4ODcsImlhdCI6MTYzODc0MzA4NywianRpIjoiNjhkMDI0YTUtMDE3Ni00OGQ4LTljOTctMzZlMzA2YmUyNTlhIiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL2F1dGgvcmVhbG1zL3BvYyIsImF1ZCI6Imh0dHA6Ly9sb2NhbGhvc3Q6ODA4MC9hdXRoL3JlYWxtcy9wb2MiLCJzdWIiOiJiNzA1ODhiZC1kNjZmLTRjMTAtYTE4Yi1kMmM0MWQ0NTZiODIiLCJ0eXAiOiJSZWZyZXNoIiwiYXpwIjoiYWRtaW4tY2xpIiwic2Vzc2lvbl9zdGF0ZSI6ImYyZGI2OWUwLTlhMWEtNDQ1Ny05ZTZkLTFjZmJlYzE4NjY2MCIsInNjb3BlIjoicHJvZmlsZSBlbWFpbCJ9.gmLVvEg5RVGyWO0EO-Z-1bs-0p2-gawOp9AzeUIHfQk",
+						"logout"
 					]
 				}
 			},
