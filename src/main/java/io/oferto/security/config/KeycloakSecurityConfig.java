@@ -32,7 +32,7 @@ public class KeycloakSecurityConfig extends KeycloakWebSecurityConfigurerAdapter
         
         http.csrf().disable().cors().disable()
                 .authorizeRequests()
-                .antMatchers("/iam/**/login", "/iam/**/logout").permitAll()
+                .antMatchers("/iam/**/login", "/iam/**/logout", "/iam/**/refresh").permitAll()
                 .antMatchers("/iam/*").hasRole("admin")
                 .antMatchers("/iam/**/users/*").hasAnyRole("admin", "operator")
                 .antMatchers("/iam/**/roles/*").hasAnyRole("admin", "operator")

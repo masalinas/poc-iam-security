@@ -9,7 +9,6 @@ import javax.ws.rs.core.Response;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -21,6 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 import io.oferto.security.config.KeycloakAdminApiConfig;
 import io.oferto.security.dto.LoginRequest;
 import io.oferto.security.dto.LoginResponse;
+import io.oferto.security.dto.RefreshTokenRequest;
 import io.oferto.security.dto.UserRequest;
 import io.oferto.security.service.LoginService;
 
@@ -37,8 +37,38 @@ import org.keycloak.representations.idm.UserRepresentation;
 public class UserController {
 	Logger log = LoggerFactory.getLogger(UserController.class);
     
-    @Autowired
     LoginService loginService;
+    
+    public UserController(LoginService loginService) {
+    	this.loginService = loginService;
+    }
+    
+    @PostMapping("/{realm}/login")
+    public ResponseEntity<LoginResponse> login(@PathVariable("realm") String realm, @RequestBody LoginRequest loginRequest) throws Exception {
+        log.info("Executing login");
+                        
+        ResponseEntity<LoginResponse> response = loginService.login(realm, loginRequest);
+
+        return response;
+    }
+    
+    @PostMapping("/{realm}/refresh")
+    public ResponseEntity<LoginResponse> refresh(@PathVariable("realm") String realm, @RequestBody RefreshTokenRequest refreshTokenRequest) throws Exception {
+        log.info("Executing refresh");
+                        
+        ResponseEntity<LoginResponse> response = loginService.refreshToken(realm, refreshTokenRequest);
+
+        return response;
+    }
+    
+    @PostMapping("/{realm}/{refreshToken}/logout")
+    public ResponseEntity<String> logout(@PathVariable("realm") String realm, @PathVariable("refreshToken") String refreshToken) throws Exception {
+        log.info("Executing logout");
+                        
+        ResponseEntity<String> response = loginService.logout(realm, refreshToken);
+
+        return response;
+    }
     
 	@RequestMapping(value = "/{realm}/clients", method = RequestMethod.GET)
     public List<ClientRepresentation> getClients(@PathVariable("realm") String realm) throws Exception {
@@ -62,8 +92,9 @@ public class UserController {
     public UserRepresentation getUser(@PathVariable("realm") String realm, @PathVariable("id") String id) throws Exception {
         log.info("Executing getUser By Id");
                 
-    	UsersResource usersResource = KeycloakAdminApiConfig.getInstance().realm(realm).users();    	
-    	    	    	
+    	UsersResource usersResource = KeycloakAdminApiConfig.getInstance().realm(realm).users();
+    	
+    	    	    
     	return usersResource.get(id).toRepresentation();       
     }
 	
@@ -130,22 +161,4 @@ public class UserController {
 	    	 
 	    return response.getStatus();
 	}
-	
-    @PostMapping("/{realm}/login")
-    public ResponseEntity<LoginResponse> login(@PathVariable("realm") String realm, @RequestBody LoginRequest loginRequest) throws Exception {
-        log.info("Executing login");
-                        
-        ResponseEntity<LoginResponse> response = loginService.login(realm, loginRequest);
-
-        return response;
-    }
-    
-    @PostMapping("/{realm}/{refreshToken}/logout")
-    public ResponseEntity<String> logout(@PathVariable("realm") String realm, @PathVariable("refreshToken") String refreshToken) throws Exception {
-        log.info("Executing logout");
-                        
-        ResponseEntity<String> response = loginService.logout(realm, refreshToken);
-
-        return response;
-    }
 }

@@ -52,6 +52,11 @@ Postman login inside test realm with the credentials user/user
 
 ![Login Postman Test](captures/postman_login.png "Login Postman Test")
 
+## Test Refresh Token with postman
+Postman refresh token test realm with from the old refresh token
+
+![Refresh Token Postman Test](captures/postman_refresh.png "Refresh Token Postman Test")
+
 ## Test Logout with curl
 ```shell
 curl -d 'client_id=admin-cli' -d 'refresh_token=<REFRESH_TOKEN>' 'http://localhost:8080/auth/realms/<CLIENT_ID>/protocol/openid-connect/logout'
