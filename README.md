@@ -22,9 +22,9 @@ Poc Keycloak Authentication/Authorization SpringBoot Microservice
 ![Create Roles](captures/client_roles.png "Client Roles")
 
 ## Create users
-- **name**: admin with **role**: admin in **poc** client and all roles in **realm-management** client
-- **name**: operator with **role**: operator
-- **name**: user with **role**: user
+- **name**: admin with roles: **admin** in **poc** client and **all roles** in **realm-management** client
+- **name**: operator with role: **operator** in **poc** client
+- **name**: user with role: **user** in **poc** client
 
 ![User Roles](captures/user_roles.png "User Roles")
 
