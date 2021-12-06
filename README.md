@@ -17,6 +17,8 @@ Poc Keycloak Authentication/Authorization SpringBoot Microservice
 ![Create Client](captures/keycloak_client.png "Create Client")
 
 ## Create client roles
+Inside the client we created these roles:
+
 - **name**: admin, operator, user
 
 ![Create Roles](captures/client_roles.png "Client Roles")
