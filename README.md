@@ -32,7 +32,7 @@ The **admin** user has **admin** rol in **poc** client and **all roles** from **
 
 ![Realm Manager Roles](captures/roles_real-manager.png "Realm Manager Roles")
 
-![Poc Roles](captures/roles_poc.png "Poc Roles") to use and role client management
+![Poc Roles](captures/roles_poc.png "Poc Roles")
 
 
 ## Client configuration
