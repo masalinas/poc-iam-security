@@ -28,6 +28,10 @@ Poc Olive Keycloak Authentication SpringBoot Microservice
 
 ![User Roles](captures/user_roles.png "User Roles")
 
+The **admin** user add all realm realm-manager roles
+
+![Realm Manager Roles](captures/real-manager-roles.png "Realm Manager Roles") to manage users and roles
+
 ## Client configuration
 We could obtain the client configuration from client to used insides springboot microserice
 

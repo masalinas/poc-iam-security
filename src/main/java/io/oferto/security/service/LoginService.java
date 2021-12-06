@@ -18,7 +18,7 @@ public class LoginService {
 	
     Logger logger = LoggerFactory.getLogger(LoginService.class);
                 
-    final static String clientId = "admin-cli";
+    final static String clientId = "test";
            
     @Autowired
     RestTemplate restTemplate;

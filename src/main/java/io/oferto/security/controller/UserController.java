@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import io.oferto.security.config.KeyCloakConfig;
+import io.oferto.security.config.KeyCloakAdminApiConfig;
 import io.oferto.security.dto.LoginRequest;
 import io.oferto.security.dto.LoginResponse;
 import io.oferto.security.dto.UserRequest;
@@ -44,7 +44,7 @@ public class UserController {
     public List<UserRepresentation> getUsers(@PathVariable("realm") String realm) throws Exception {
         log.info("Executing getUsers");
                 
-    	UsersResource usersResource = KeyCloakConfig.getInstance().realm(realm).users();    	
+    	UsersResource usersResource = KeyCloakAdminApiConfig.getInstance().realm(realm).users();    	
     	
     	List<UserRepresentation> userRepresentations = usersResource.list();
     	    	
@@ -55,7 +55,7 @@ public class UserController {
     public UserRepresentation getUse(@PathVariable("realm") String realm, @PathVariable("id") String id) throws Exception {
         log.info("Executing getUser By Id");
                 
-    	UsersResource usersResource = KeyCloakConfig.getInstance().realm(realm).users();    	
+    	UsersResource usersResource = KeyCloakAdminApiConfig.getInstance().realm(realm).users();    	
     	
     	List<UserRepresentation> userRepresentations = usersResource.list();
 
@@ -74,7 +74,7 @@ public class UserController {
     public List<ClientRepresentation> getClients(@PathVariable("realm") String realm) throws Exception {
         log.info("Executing getClients");
                     	
-    	ClientsResource clientsResource = KeyCloakConfig.getInstance().realm(realm).clients();
+    	ClientsResource clientsResource = KeyCloakAdminApiConfig.getInstance().realm(realm).clients();
     	
     	List<ClientRepresentation> clientRepresentations = clientsResource.findAll();    	    
     	
@@ -85,7 +85,7 @@ public class UserController {
     public Map<String, List<String>> getRoles(@PathVariable("realm") String realm, @PathVariable("id") String id) throws Exception {
         log.info("Executing getRoles");
                     	
-    	UsersResource usersResource = KeyCloakConfig.getInstance().realm(realm).users();
+    	UsersResource usersResource = KeyCloakAdminApiConfig.getInstance().realm(realm).users();
     	    	
     	List<UserRepresentation> userRepresentations = usersResource.list();
     	
@@ -104,7 +104,7 @@ public class UserController {
 	public String createUser(@PathVariable("realm") String realm, @RequestBody UserRequest userRequest) {
 		log.info("Executing createUser");
 		
-		UsersResource usersResource = KeyCloakConfig.getInstance().realm(realm).users();
+		UsersResource usersResource = KeyCloakAdminApiConfig.getInstance().realm(realm).users();
 		
 	   	UserRepresentation user = new UserRepresentation();
 	    user.setEnabled(userRequest.isEnabled());
@@ -126,7 +126,7 @@ public class UserController {
 	public void updateUser(@PathVariable("realm") String realm, @PathVariable("id") String id, @RequestBody UserRequest userRequest) {
 		log.info("Executing updateUser");
 		
-		UsersResource usersResource = KeyCloakConfig.getInstance().realm(realm).users();
+		UsersResource usersResource = KeyCloakAdminApiConfig.getInstance().realm(realm).users();
 			 
 		UserResource userResource = usersResource.get(id);
 		
@@ -148,7 +148,7 @@ public class UserController {
 	public int deleteUser(@PathVariable("realm") String realm, @PathVariable("id") String id) {
 		log.info("Executing deleteUser");
 		
-		UsersResource usersResource = KeyCloakConfig.getInstance().realm(realm).users();
+		UsersResource usersResource = KeyCloakAdminApiConfig.getInstance().realm(realm).users();
 			    	         
 	    Response response = usersResource.delete(id);
 	    	 

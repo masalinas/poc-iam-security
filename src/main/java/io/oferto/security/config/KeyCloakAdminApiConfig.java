@@ -5,7 +5,7 @@ import org.keycloak.OAuth2Constants;
 import org.keycloak.admin.client.Keycloak;
 import org.keycloak.admin.client.KeycloakBuilder;
 
-public class KeyCloakConfig {
+public class KeyCloakAdminApiConfig {
 	static Keycloak keycloak = null;
 	
     final static String serverUrl = "http://localhost:8080/auth";
@@ -13,10 +13,12 @@ public class KeyCloakConfig {
     //final static String realm = "test";
     final static String clientId = "admin-cli";
     //final static String clientSecret = "01819628-948c-4220-9e6d-e56da5f34d56";
-    final static String userName = "realm-management";
-    final static String password = "management";
+    //final static String userName = "realm-management";
+    //final static String password = "management";
+    final static String userName = "admin";
+    final static String password = "admin";
     
-    public KeyCloakConfig() {
+    public KeyCloakAdminApiConfig() {
     }
 
     public static Keycloak getInstance() {
