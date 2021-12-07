@@ -11,7 +11,7 @@ Poc Keycloak Authentication/Authorization SpringBoot Microservice
 
 ## Create client
 
-- **Name**: test
+- **Name**: admin-api
 - **Root URL**: http://localhost:8081 (This is the domain where microservice is running)
 
 ![Create Client](captures/keycloak_client.png "Create Client")
@@ -24,13 +24,13 @@ Inside the client we created these roles:
 ![Create Roles](captures/client_roles.png "Client Roles")
 
 ## Create users
-- **name**: admin with roles: **admin** in **poc** client and **all roles** in **realm-management** client
-- **name**: operator with role: **operator** in **poc** client
-- **name**: user with role: **user** in **poc** client
+- **name**: admin with roles: **admin** in **admin-api** client and **all roles** in **realm-management** client
+- **name**: operator with role: **operator** in **admin-api** client
+- **name**: user with role: **user** in **admin-api** client
 
 ![User Roles](captures/user_roles.png "User Roles")
 
-The **admin** user has **admin** rol in **poc** client and **all roles** from **realm-manager** client
+The **admin** user has **admin** rol in **admin-api** client and **all roles** from **realm-manager** client
 
 ![Realm Manager Roles](captures/roles_real-manager.png "Realm Manager Roles")
 

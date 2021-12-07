@@ -3,6 +3,7 @@ package io.oferto.security.config;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.core.authority.mapping.SimpleAuthorityMapper;
 import org.springframework.security.core.session.SessionRegistryImpl;
@@ -19,6 +20,9 @@ import org.keycloak.adapters.springsecurity.config.KeycloakWebSecurityConfigurer
 import org.keycloak.adapters.springsecurity.filter.KeycloakAuthenticationProcessingFilter;
 
 @KeycloakConfiguration
+@EnableGlobalMethodSecurity(prePostEnabled = true,
+							securedEnabled = true,
+							jsr250Enabled = true)
 public class KeycloakSecurityConfig extends KeycloakWebSecurityConfigurerAdapter {
     @Autowired
     RestAccessDeniedHandler restAccessDeniedHandler;
@@ -30,13 +34,10 @@ public class KeycloakSecurityConfig extends KeycloakWebSecurityConfigurerAdapter
     protected void configure(HttpSecurity http) throws Exception {
         super.configure(http);
         
-        http.csrf().disable().cors().disable()
+        http.csrf().disable()
+        	.cors().disable()
                 .authorizeRequests()
                 .antMatchers("/iam/**/login", "/iam/**/logout", "/iam/**/refresh").permitAll()
-                .antMatchers("/iam/*").hasRole("admin")
-                .antMatchers("/iam/**/users/*").hasAnyRole("admin", "operator")
-                .antMatchers("/iam/**/roles/*").hasAnyRole("admin", "operator")
-                .antMatchers("/iam/**/clients").hasAnyRole("admin", "operator")
                 .anyRequest()
                 .authenticated();
         

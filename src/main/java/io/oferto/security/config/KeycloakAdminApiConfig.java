@@ -10,7 +10,7 @@ public class KeycloakAdminApiConfig {
 	
     final static String serverUrl = "http://localhost:8080/auth";
     public final static String realm = "poc";
-    //final static String realm = "test";
+    //final static String realm = "poc";
     final static String clientId = "admin-cli";
     //final static String clientSecret = "01819628-948c-4220-9e6d-e56da5f34d56";
     final static String userName = "admin";

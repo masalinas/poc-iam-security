@@ -22,7 +22,7 @@ public class LoginService {
     Logger logger = LoggerFactory.getLogger(LoginService.class);
     
     final static String domain = "http://localhost:8080";
-    final static String clientId = "test";
+    final static String clientId = "admin-api";
            
     RestTemplate restTemplate;
     

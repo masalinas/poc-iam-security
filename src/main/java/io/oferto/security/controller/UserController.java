@@ -10,6 +10,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -70,6 +71,7 @@ public class UserController {
         return response;
     }
     
+    @PreAuthorize("hasAnyRole('admin')")
 	@RequestMapping(value = "/{realm}/clients", method = RequestMethod.GET)
     public List<ClientRepresentation> getClients(@PathVariable("realm") String realm) throws Exception {
         log.info("Executing getClients");
@@ -79,6 +81,7 @@ public class UserController {
     	return clientsResource.findAll();
     }
 		
+    @PreAuthorize("hasAnyRole('admin','operator', 'user')")
 	@RequestMapping(value = "/{realm}/users", method = RequestMethod.GET)
     public List<UserRepresentation> getUsers(@PathVariable("realm") String realm) throws Exception {
         log.info("Executing getUsers");
@@ -88,6 +91,7 @@ public class UserController {
     	return usersResource.list();    	    	
     }
 	
+    @PreAuthorize("hasAnyRole('admin','operator', 'user')")
 	@RequestMapping(value = "/{realm}/users/{id}", method = RequestMethod.GET)
     public UserRepresentation getUser(@PathVariable("realm") String realm, @PathVariable("id") String id) throws Exception {
         log.info("Executing getUser By Id");
@@ -98,6 +102,7 @@ public class UserController {
     	return usersResource.get(id).toRepresentation();       
     }
 	
+    @PreAuthorize("hasAnyRole('admin','operator', 'user')")
 	@RequestMapping(value = "/{realm}/users/{id}/roles", method = RequestMethod.GET)
     public MappingsRepresentation getRoles(@PathVariable("realm") String realm, @PathVariable("id") String id) throws Exception {
         log.info("Executing getRoles");
@@ -107,6 +112,7 @@ public class UserController {
     	return usersResource.get(id).roles().getAll();
     }
 	
+    @PreAuthorize("hasAnyRole('admin', 'operator')")
 	@RequestMapping(value = "/{realm}/users", method = RequestMethod.POST)
 	public String createUser(@PathVariable("realm") String realm, @RequestBody UserRequest userRequest) {
 		log.info("Executing createUser");
@@ -129,6 +135,7 @@ public class UserController {
 	    return CreatedResponseUtil.getCreatedId(response);	    
 	}
 
+    @PreAuthorize("hasAnyRole('admin', 'operator')")
 	@RequestMapping(value = "/{realm}/users/{id}", method = RequestMethod.PUT)
 	public void updateUser(@PathVariable("realm") String realm, @PathVariable("id") String id, @RequestBody UserRequest userRequest) {
 		log.info("Executing updateUser");
@@ -151,6 +158,7 @@ public class UserController {
 	    userResource.update(user);
 	}
 	
+    @PreAuthorize("hasAnyRole('admin', 'operator')")
 	@RequestMapping(value = "/{realm}/users/{id}", method = RequestMethod.DELETE)
 	public int deleteUser(@PathVariable("realm") String realm, @PathVariable("id") String id) {
 		log.info("Executing deleteUser");
