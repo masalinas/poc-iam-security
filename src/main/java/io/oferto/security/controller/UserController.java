@@ -104,7 +104,8 @@ public class UserController {
     	return clientsResource.findAll();
     }
 		
-    @PreAuthorize("hasAnyRole('admin','operator', 'user')")
+    @PreAuthorize("hasAnyRole(@authorizeService.roles)")
+    //@PreAuthorize("hasAnyRole('admin','operator', 'user')")    
 	@RequestMapping(value = "/{realm}/users", method = RequestMethod.GET)
     public List<UserRepresentation> getUsers(@PathVariable("realm") String realm) throws Exception {
         log.info("Executing get Users");
