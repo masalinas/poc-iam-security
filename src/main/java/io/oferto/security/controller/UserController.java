@@ -51,7 +51,7 @@ public class UserController {
     
     @PostMapping("/{realm}/login")
     public ResponseEntity<LoginResponse> login(@PathVariable("realm") String realm, @RequestBody LoginRequest loginRequest) throws Exception {
-        log.info("Executing login");
+        log.info("Executing Login");
                         
         ResponseEntity<LoginResponse> response = loginService.login(realm, loginRequest);
 
@@ -60,16 +60,16 @@ public class UserController {
     
     @PostMapping("/{realm}/refresh")
     public ResponseEntity<LoginResponse> refresh(@PathVariable("realm") String realm, @RequestBody RefreshTokenRequest refreshTokenRequest) throws Exception {
-        log.info("Executing refresh");
+        log.info("Executing Refresh");
                         
         ResponseEntity<LoginResponse> response = loginService.refreshToken(realm, refreshTokenRequest);
 
         return response;
     }
     
-    @PostMapping("/{realm}/users/{id}/restPassword")
+    @PostMapping("/{realm}/users/{id}/resetPassword")
     public void resetPassword(@PathVariable("realm") String realm, @PathVariable("id") String id, @RequestBody String resetPasswordRequest) throws Exception {
-        log.info("Executing resetPassword");
+        log.info("Executing reset Password");
                         
         RealmResource realmResource = KeycloakAdminApiConfig.getInstance().realm(realm);
 		UsersResource usersResource = realmResource.users();
@@ -82,12 +82,12 @@ public class UserController {
 	    credentialRepresentation.setTemporary(false);
 	    credentialRepresentation.setValue(resetPasswordRequest);
 	    	    
-	    userResource.resetPassword(credentialRepresentation);
+	    userResource.resetPassword(credentialRepresentation);	    
     }
     
-    @PostMapping("/{realm}/{refreshToken}/logout")
-    public ResponseEntity<String> logout(@PathVariable("realm") String realm, @PathVariable("refreshToken") String refreshToken) throws Exception {
-        log.info("Executing logout");
+    @PostMapping("/{realm}/logout")
+    public ResponseEntity<String> logout(@PathVariable("realm") String realm, @RequestBody String refreshToken) throws Exception {
+        log.info("Executing Logout");
                         
         ResponseEntity<String> response = loginService.logout(realm, refreshToken);
 
@@ -97,7 +97,7 @@ public class UserController {
     @PreAuthorize("hasAnyRole('admin')")
 	@RequestMapping(value = "/{realm}/clients", method = RequestMethod.GET)
     public List<ClientRepresentation> getClients(@PathVariable("realm") String realm) throws Exception {
-        log.info("Executing getClients");
+        log.info("Executing get Clients");
                     	
     	ClientsResource clientsResource = KeycloakAdminApiConfig.getInstance().realm(realm).clients();
     	
@@ -107,7 +107,7 @@ public class UserController {
     @PreAuthorize("hasAnyRole('admin','operator', 'user')")
 	@RequestMapping(value = "/{realm}/users", method = RequestMethod.GET)
     public List<UserRepresentation> getUsers(@PathVariable("realm") String realm) throws Exception {
-        log.info("Executing getUsers");
+        log.info("Executing get Users");
                 
     	UsersResource usersResource = KeycloakAdminApiConfig.getInstance().realm(realm).users();    	
     	
@@ -117,7 +117,7 @@ public class UserController {
     @PreAuthorize("hasAnyRole('admin','operator', 'user')")
 	@RequestMapping(value = "/{realm}/users/{id}", method = RequestMethod.GET)
     public UserRepresentation getUser(@PathVariable("realm") String realm, @PathVariable("id") String id) throws Exception {
-        log.info("Executing getUser By Id");
+        log.info("Executing get User by Id");
                 
     	UsersResource usersResource = KeycloakAdminApiConfig.getInstance().realm(realm).users();
     	
@@ -128,7 +128,7 @@ public class UserController {
     @PreAuthorize("hasAnyRole('admin','operator', 'user')")
 	@RequestMapping(value = "/{realm}/users/{id}/roles", method = RequestMethod.GET)
     public MappingsRepresentation getRoles(@PathVariable("realm") String realm, @PathVariable("id") String id) throws Exception {
-        log.info("Executing getRoles");
+        log.info("Executing get Roles");
                     	
     	UsersResource usersResource = KeycloakAdminApiConfig.getInstance().realm(realm).users();
 
@@ -138,7 +138,7 @@ public class UserController {
     @PreAuthorize("hasAnyRole('admin', 'operator')")
 	@RequestMapping(value = "/{realm}/users", method = RequestMethod.POST)
 	public String createUser(@PathVariable("realm") String realm, @RequestBody UserRequest userRequest) {
-		log.info("Executing createUser");
+		log.info("Executing create User");
 		
 		RealmResource realmResource = KeycloakAdminApiConfig.getInstance().realm(realm);
 		UsersResource usersResource = realmResource.users();
@@ -224,7 +224,7 @@ public class UserController {
     @PreAuthorize("hasAnyRole('admin', 'operator')")
 	@RequestMapping(value = "/{realm}/users/{id}", method = RequestMethod.PUT)
 	public void updateUser(@PathVariable("realm") String realm, @PathVariable("id") String id, @RequestBody UserRequest userRequest) {
-		log.info("Executing updateUser");
+		log.info("Executing update User");
 		
 		UsersResource usersResource = KeycloakAdminApiConfig.getInstance().realm(realm).users();
 			 
@@ -247,7 +247,7 @@ public class UserController {
     @PreAuthorize("hasAnyRole('admin', 'operator')")
 	@RequestMapping(value = "/{realm}/users/{id}", method = RequestMethod.DELETE)
 	public int deleteUser(@PathVariable("realm") String realm, @PathVariable("id") String id) {
-		log.info("Executing deleteUser");
+		log.info("Executing delete User");
 		
 		UsersResource usersResource = KeycloakAdminApiConfig.getInstance().realm(realm).users();
 			    	         
