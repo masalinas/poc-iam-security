@@ -116,7 +116,7 @@ public class UserController {
 	
     @PreAuthorize("hasAnyRole('admin','operator', 'user')")
 	@RequestMapping(value = "/{realm}/users/{id}", method = RequestMethod.GET)
-    public UserRepresentation getUser(@PathVariable("realm") String realm, @PathVariable("id") String id) throws Exception {
+    public UserRepresentation getUserById(@PathVariable("realm") String realm, @PathVariable("id") String id) throws Exception {
         log.info("Executing get User by Id");
                 
     	UsersResource usersResource = KeycloakAdminApiConfig.getInstance().realm(realm).users();
