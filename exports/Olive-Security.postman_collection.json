@@ -12,7 +12,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"username\": \"user\",\n    \"password\": \"user\"\n}",
+					"raw": "{\n    \"username\": \"masalinas\",\n    \"password\": \"1234\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -82,6 +82,33 @@
 						"iam",
 						"poc",
 						"refresh"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "resetPassword",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "password"
+				},
+				"url": {
+					"raw": "http://localhost:8081/iam/poc/users/5b1e3f9a-24e4-459f-8c74-ac969d370d83/restPassword",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"iam",
+						"poc",
+						"users",
+						"5b1e3f9a-24e4-459f-8c74-ac969d370d83",
+						"restPassword"
 					]
 				}
 			},
@@ -167,7 +194,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICI3ejBlZ25XU05qVldEenY3bmtZRGw3ekVyc3Zld2Q4c1FieEVuX2pTNFYwIn0.eyJleHAiOjE2Mzg4MjU3ODYsImlhdCI6MTYzODgyNTQ4NiwianRpIjoiNzc3ZWVmZWYtNjU2Mi00NDU4LWEyOTAtY2RhMTUxOWI3ZmY1IiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL2F1dGgvcmVhbG1zL3BvYyIsImF1ZCI6WyJyZWFsbS1tYW5hZ2VtZW50IiwiYnVzaW5lc3MiLCJhY2NvdW50Il0sInN1YiI6Ijk5ZTE2MTMzLWY2MjItNDMxNC1iM2QwLWY0ZjE1MzI1NDFiMyIsInR5cCI6IkJlYXJlciIsImF6cCI6ImFkbWluLWFwaSIsInNlc3Npb25fc3RhdGUiOiJmNTczOWIyNS1iMzgyLTQyNTItYWE0Mi1hNThhN2JiY2I0M2YiLCJhY3IiOiIxIiwiYWxsb3dlZC1vcmlnaW5zIjpbImh0dHA6Ly9sb2NhbGhvc3Q6ODA4MSJdLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsiZGVmYXVsdC1yb2xlcy1wb2MiLCJvZmZsaW5lX2FjY2VzcyIsInVtYV9hdXRob3JpemF0aW9uIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsicmVhbG0tbWFuYWdlbWVudCI6eyJyb2xlcyI6WyJ2aWV3LWlkZW50aXR5LXByb3ZpZGVycyIsInZpZXctcmVhbG0iLCJtYW5hZ2UtaWRlbnRpdHktcHJvdmlkZXJzIiwiaW1wZXJzb25hdGlvbiIsInJlYWxtLWFkbWluIiwiY3JlYXRlLWNsaWVudCIsIm1hbmFnZS11c2VycyIsInF1ZXJ5LXJlYWxtcyIsInZpZXctYXV0aG9yaXphdGlvbiIsInF1ZXJ5LWNsaWVudHMiLCJxdWVyeS11c2VycyIsIm1hbmFnZS1ldmVudHMiLCJtYW5hZ2UtcmVhbG0iLCJ2aWV3LWV2ZW50cyIsInZpZXctdXNlcnMiLCJ2aWV3LWNsaWVudHMiLCJtYW5hZ2UtYXV0aG9yaXphdGlvbiIsIm1hbmFnZS1jbGllbnRzIiwicXVlcnktZ3JvdXBzIl19LCJidXNpbmVzcyI6eyJyb2xlcyI6WyJhZG1pbiJdfSwiYWRtaW4tYXBpIjp7InJvbGVzIjpbImFkbWluIl19LCJhY2NvdW50Ijp7InJvbGVzIjpbIm1hbmFnZS1hY2NvdW50IiwibWFuYWdlLWFjY291bnQtbGlua3MiLCJ2aWV3LXByb2ZpbGUiXX19LCJzY29wZSI6InByb2ZpbGUgZW1haWwiLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsIm5hbWUiOiJBZG1pbmlzdHJhdG9yIFRlc3QiLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJhZG1pbiIsImdpdmVuX25hbWUiOiJBZG1pbmlzdHJhdG9yIiwiZmFtaWx5X25hbWUiOiJUZXN0IiwiZW1haWwiOiJhZG1pbkBvZmVydG8uaW8ifQ.DbQLzF_TbdC9jiBd36Kh87_vhe5DaBsADHwxW-o9KGaZWXpy59DgdzobP_sfJFkdRShV7dMmZBqi6pU-_Ig9CUFw0fa3bpJvJvThmaIMJJmNggRwvx8Dbs7bTLgUSzagVBFXz0vDx4yh3KPikhb7_8PLxqt9H33oCtzMt6OR8fR-oxrWzmWL-3UDQsEGSEbRb0XpqhVX6WUjvfVFfxOjYDRATGUV_z6DPCJ80vn87JFwr2jmoDleHfJzXwPi3-OOophgv43p52R49My1JUW-M9UCjd8C7amp-zGRA8CqI_St0dGEC9gFqY0tPSjR7vhu6C32MOerc_T0H8dutHIfSw",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICI3ejBlZ25XU05qVldEenY3bmtZRGw3ekVyc3Zld2Q4c1FieEVuX2pTNFYwIn0.eyJleHAiOjE2Mzg5NjU5NDMsImlhdCI6MTYzODk2NTY0MywianRpIjoiYWJmYjhjNjItMjk4ZC00OTRlLWIzNmUtZDJjZDgwZGY0ZDhiIiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL2F1dGgvcmVhbG1zL3BvYyIsImF1ZCI6WyJyZWFsbS1tYW5hZ2VtZW50IiwiYnVzaW5lc3MtYXBpIiwiYnVzaW5lc3MtZGV0YWlsLWFwaSIsImFjY291bnQiXSwic3ViIjoiOTllMTYxMzMtZjYyMi00MzE0LWIzZDAtZjRmMTUzMjU0MWIzIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoiYWRtaW4tYXBpIiwic2Vzc2lvbl9zdGF0ZSI6ImE2YmM5ZGRkLTZiYTgtNGFjNi1hYjcxLTEzMmFmNTRiYWJjMCIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiaHR0cDovL2xvY2FsaG9zdDo4MDgxIl0sInJlYWxtX2FjY2VzcyI6eyJyb2xlcyI6WyJkZWZhdWx0LXJvbGVzLXBvYyIsIm9mZmxpbmVfYWNjZXNzIiwiYXBwLWFkbWluIiwidW1hX2F1dGhvcml6YXRpb24iXX0sInJlc291cmNlX2FjY2VzcyI6eyJyZWFsbS1tYW5hZ2VtZW50Ijp7InJvbGVzIjpbInZpZXctaWRlbnRpdHktcHJvdmlkZXJzIiwidmlldy1yZWFsbSIsIm1hbmFnZS1pZGVudGl0eS1wcm92aWRlcnMiLCJpbXBlcnNvbmF0aW9uIiwicmVhbG0tYWRtaW4iLCJjcmVhdGUtY2xpZW50IiwibWFuYWdlLXVzZXJzIiwicXVlcnktcmVhbG1zIiwidmlldy1hdXRob3JpemF0aW9uIiwicXVlcnktY2xpZW50cyIsInF1ZXJ5LXVzZXJzIiwibWFuYWdlLWV2ZW50cyIsIm1hbmFnZS1yZWFsbSIsInZpZXctZXZlbnRzIiwidmlldy11c2VycyIsInZpZXctY2xpZW50cyIsIm1hbmFnZS1hdXRob3JpemF0aW9uIiwibWFuYWdlLWNsaWVudHMiLCJxdWVyeS1ncm91cHMiXX0sImFkbWluLWFwaSI6eyJyb2xlcyI6WyJhZG1pbiJdfSwiYnVzaW5lc3MtYXBpIjp7InJvbGVzIjpbImFkbWluIl19LCJidXNpbmVzcy1kZXRhaWwtYXBpIjp7InJvbGVzIjpbImFkbWluIl19LCJhY2NvdW50Ijp7InJvbGVzIjpbIm1hbmFnZS1hY2NvdW50IiwibWFuYWdlLWFjY291bnQtbGlua3MiLCJ2aWV3LXByb2ZpbGUiXX19LCJzY29wZSI6InByb2ZpbGUgZW1haWwiLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsIm5hbWUiOiJBZG1pbmlzdHJhdG9yIFRlc3QiLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJhZG1pbiIsImdpdmVuX25hbWUiOiJBZG1pbmlzdHJhdG9yIiwiZmFtaWx5X25hbWUiOiJUZXN0IiwiZW1haWwiOiJhZG1pbkBvZmVydG8uaW8ifQ.WKtA4slpa33VMVynNCXLCImyy84LsLKBwk5DhtWY19yLrK5Kfe24EuVuVgmREpuJHgRbSeJCxcWLhQR0hJjNlkYVWpPcrZsb5jcLP6mE3bi9j3AhNORp6G3uO9XMOBMoxdAKL0P5rcaARZLYsSakW8KPqR8A1IVADD4TEsaWzig73kwN-Vc22pZOGsmzw8wMkN9-Jwrxx6nP5c7-9FBWjAiSuPLq6p7tV7cH2lRJa3N-sVK-br5ws-G5DrDK0_5L_oaJnI9r8XiQsi23yWO5lyhdJpg-RMLq-OZQFrQtOG1y3NN9dh5aIHBoFJOsyRXDgqsH_MctJCBnWlyBBEfNPQ",
 							"type": "string"
 						},
 						{
@@ -180,7 +207,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8081/iam/poc/users/99e16133-f622-4314-b3d0-f4f1532541b3",
+					"raw": "http://localhost:8081/iam/poc/users/60d22473-215f-40f1-b25b-6c5722415e1b",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -190,7 +217,7 @@
 						"iam",
 						"poc",
 						"users",
-						"99e16133-f622-4314-b3d0-f4f1532541b3"
+						"60d22473-215f-40f1-b25b-6c5722415e1b"
 					]
 				}
 			},
@@ -241,7 +268,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICI3ejBlZ25XU05qVldEenY3bmtZRGw3ekVyc3Zld2Q4c1FieEVuX2pTNFYwIn0.eyJleHAiOjE2Mzg4MjY2ODgsImlhdCI6MTYzODgyNjM4OCwianRpIjoiZDc2NDk1YjMtZWI0Zi00MDE1LWE1YTUtMjQyY2RkYTljNTI3IiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL2F1dGgvcmVhbG1zL3BvYyIsImF1ZCI6WyJyZWFsbS1tYW5hZ2VtZW50IiwiYnVzaW5lc3MtYXBpIiwiYWNjb3VudCJdLCJzdWIiOiI5OWUxNjEzMy1mNjIyLTQzMTQtYjNkMC1mNGYxNTMyNTQxYjMiLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJhZG1pbi1hcGkiLCJzZXNzaW9uX3N0YXRlIjoiYjAzYjk0ZTItMTJjYi00NTYxLWJlYjEtNDRlMmE0ZDFkYjFhIiwiYWNyIjoiMSIsImFsbG93ZWQtb3JpZ2lucyI6WyJodHRwOi8vbG9jYWxob3N0OjgwODEiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbImRlZmF1bHQtcm9sZXMtcG9jIiwib2ZmbGluZV9hY2Nlc3MiLCJ1bWFfYXV0aG9yaXphdGlvbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7InJlYWxtLW1hbmFnZW1lbnQiOnsicm9sZXMiOlsidmlldy1pZGVudGl0eS1wcm92aWRlcnMiLCJ2aWV3LXJlYWxtIiwibWFuYWdlLWlkZW50aXR5LXByb3ZpZGVycyIsImltcGVyc29uYXRpb24iLCJyZWFsbS1hZG1pbiIsImNyZWF0ZS1jbGllbnQiLCJtYW5hZ2UtdXNlcnMiLCJxdWVyeS1yZWFsbXMiLCJ2aWV3LWF1dGhvcml6YXRpb24iLCJxdWVyeS1jbGllbnRzIiwicXVlcnktdXNlcnMiLCJtYW5hZ2UtZXZlbnRzIiwibWFuYWdlLXJlYWxtIiwidmlldy1ldmVudHMiLCJ2aWV3LXVzZXJzIiwidmlldy1jbGllbnRzIiwibWFuYWdlLWF1dGhvcml6YXRpb24iLCJtYW5hZ2UtY2xpZW50cyIsInF1ZXJ5LWdyb3VwcyJdfSwiYWRtaW4tYXBpIjp7InJvbGVzIjpbImFkbWluIl19LCJidXNpbmVzcy1hcGkiOnsicm9sZXMiOlsiYWRtaW4iXX0sImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoicHJvZmlsZSBlbWFpbCIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwibmFtZSI6IkFkbWluaXN0cmF0b3IgVGVzdCIsInByZWZlcnJlZF91c2VybmFtZSI6ImFkbWluIiwiZ2l2ZW5fbmFtZSI6IkFkbWluaXN0cmF0b3IiLCJmYW1pbHlfbmFtZSI6IlRlc3QiLCJlbWFpbCI6ImFkbWluQG9mZXJ0by5pbyJ9.LmCVfmpVcoaexWDi7YrZwvwf3qW2IfYOHEOxqLvWq4wEj3zOwot1UCTjDSneI5d1STL1lHpIe05rXPYFR5FLb58C3PFyGuCikCnC_a0kCGNiIh-ILQfH2LJ6TEjNBxtNm8Ek8BiW0lCxI2Ly2lZPNSxWHo4VGrBF9ekio0W29tD-GmAwGHP5KYAvkE2loFv_UK-pylahC2MSJ5rSh1KzxLYrhT1CUoNWDHsN7Bijmxw7nxAksLr02oyvCN_C4FfJm9UJoRmdaDvKMsCxjD6wGiw1Jv5Qk5MjKb6U-9dbc6TLaRMenSCXVVHIxjp0h-QN_1X5d2gk2ly8tiOEjYpZIw",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICI3ejBlZ25XU05qVldEenY3bmtZRGw3ekVyc3Zld2Q4c1FieEVuX2pTNFYwIn0.eyJleHAiOjE2Mzg5NzY5NjMsImlhdCI6MTYzODk3NjY2MywianRpIjoiNmNhOTk0NmItZTJkOS00YTkwLTgyOWQtNjhiMGU2Njc3Zjk4IiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL2F1dGgvcmVhbG1zL3BvYyIsImF1ZCI6WyJyZWFsbS1tYW5hZ2VtZW50IiwiYnVzaW5lc3MtYXBpIiwiYnVzaW5lc3MtZGV0YWlsLWFwaSIsImFjY291bnQiXSwic3ViIjoiOTllMTYxMzMtZjYyMi00MzE0LWIzZDAtZjRmMTUzMjU0MWIzIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoiYWRtaW4tYXBpIiwic2Vzc2lvbl9zdGF0ZSI6IjQ4ZWE4NTg1LTllZTQtNDk5YS1hZGE0LTQ0MjRhNjhiNjhiOSIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiaHR0cDovL2xvY2FsaG9zdDo4MDgxIl0sInJlYWxtX2FjY2VzcyI6eyJyb2xlcyI6WyJkZWZhdWx0LXJvbGVzLXBvYyIsIm9mZmxpbmVfYWNjZXNzIiwiYXBwLWFkbWluIiwidW1hX2F1dGhvcml6YXRpb24iXX0sInJlc291cmNlX2FjY2VzcyI6eyJyZWFsbS1tYW5hZ2VtZW50Ijp7InJvbGVzIjpbInZpZXctaWRlbnRpdHktcHJvdmlkZXJzIiwidmlldy1yZWFsbSIsIm1hbmFnZS1pZGVudGl0eS1wcm92aWRlcnMiLCJpbXBlcnNvbmF0aW9uIiwicmVhbG0tYWRtaW4iLCJjcmVhdGUtY2xpZW50IiwibWFuYWdlLXVzZXJzIiwicXVlcnktcmVhbG1zIiwidmlldy1hdXRob3JpemF0aW9uIiwicXVlcnktY2xpZW50cyIsInF1ZXJ5LXVzZXJzIiwibWFuYWdlLWV2ZW50cyIsIm1hbmFnZS1yZWFsbSIsInZpZXctZXZlbnRzIiwidmlldy11c2VycyIsInZpZXctY2xpZW50cyIsIm1hbmFnZS1hdXRob3JpemF0aW9uIiwibWFuYWdlLWNsaWVudHMiLCJxdWVyeS1ncm91cHMiXX0sImFkbWluLWFwaSI6eyJyb2xlcyI6WyJhZG1pbiJdfSwiYnVzaW5lc3MtYXBpIjp7InJvbGVzIjpbImFkbWluIl19LCJidXNpbmVzcy1kZXRhaWwtYXBpIjp7InJvbGVzIjpbImFkbWluIl19LCJhY2NvdW50Ijp7InJvbGVzIjpbIm1hbmFnZS1hY2NvdW50IiwibWFuYWdlLWFjY291bnQtbGlua3MiLCJ2aWV3LXByb2ZpbGUiXX19LCJzY29wZSI6InByb2ZpbGUgZW1haWwiLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsIm5hbWUiOiJBZG1pbmlzdHJhdG9yIFRlc3QiLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJhZG1pbiIsImdpdmVuX25hbWUiOiJBZG1pbmlzdHJhdG9yIiwiZmFtaWx5X25hbWUiOiJUZXN0IiwiZW1haWwiOiJhZG1pbkBvZmVydG8uaW8ifQ.Uu0YuanWpQbl-Zv9HniAVV5NA5yd4CF7_4GD1fJkzJmT6RjjydYf7ATCQwoI0ZxmFw6i88sLxrzbrQaIrxwYGcB0myEWCLaTGP_MxqGIxehCZDWTMKWIxSKh8nIde6UMhNZTMR13avPSczTAMhEu4WMC9rqk1nXmt-RrfG8mTqCJje-Nq8_IfC-Jbr4RIA6hMt8nAOY5IbIMRLRgdD-Hbqqp1uvylBnvnIQQrhmJ6UuNwCFSj4qAhg9QIt6-ZXEBgDttsh6H0YmYXmbNT8aARlDr9yfv0iROxVVqzjPJdgnhyqkyPEQw7fX6_khBCX8a2VvRetoOTJ_uJ7KiXJCAWw",
 							"type": "string"
 						},
 						{
@@ -255,7 +282,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"enabled\": true,\n\t\"username\": \"masalinas\",\n\t\"firstName\": \"Miguel\",\n\t\"lastName\": \"Salinas Gancedo\",\n\t\"email\": \"masalinas.gancedo@oferto.io\",\n\t\"attributes\": {\"department\": [\"rrhh\", \"manufacturing\"]}\n}",
+					"raw": "{\n\t\"enabled\": true,\n\t\"username\": \"masalinas\",\n\t\"firstName\": \"Miguel\",\n\t\"lastName\": \"Salinas Gancedo\",\n\t\"email\": \"masalinas.gancedo@oferto.io\",\n    \"realmRoles\": [\"app-user\"],\n    \"password\": \"1234\",\n    \"clientRoles\": {\"realm-management\": [\"manage-users\", \"query-users\"]},\n\t\"attributes\": {\"department\": [\"rrhh\", \"manufacturing\"]}\n}",
 					"options": {
 						"raw": {
 							"language": "json"

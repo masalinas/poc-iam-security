@@ -12,5 +12,9 @@ public class UserRequest {
 	private String firstName;
 	private String lastName;
 	private String email;
+	private String address;
+	private String password;
+	private List<String> realmRoles;
+	private Map<String, List<String>> clientRoles;
 	private Map<String, List<String>> attributes;
 }

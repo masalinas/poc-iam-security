@@ -1,5 +1,6 @@
 package io.oferto.security.controller;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map.Entry;
@@ -27,16 +28,20 @@ import io.oferto.security.service.LoginService;
 
 import org.keycloak.admin.client.CreatedResponseUtil;
 import org.keycloak.admin.client.resource.ClientsResource;
+import org.keycloak.admin.client.resource.RealmResource;
 import org.keycloak.admin.client.resource.UserResource;
 import org.keycloak.admin.client.resource.UsersResource;
 import org.keycloak.representations.idm.ClientRepresentation;
+import org.keycloak.representations.idm.CredentialRepresentation;
 import org.keycloak.representations.idm.MappingsRepresentation;
+import org.keycloak.representations.idm.RoleRepresentation;
 import org.keycloak.representations.idm.UserRepresentation;
 
 @RestController
 @RequestMapping("iam")
 public class UserController {
-	Logger log = LoggerFactory.getLogger(UserController.class);
+	final String CLIENT_NAME = "poc";	
+	final Logger log = LoggerFactory.getLogger(UserController.class);
     
     LoginService loginService;
     
@@ -60,6 +65,24 @@ public class UserController {
         ResponseEntity<LoginResponse> response = loginService.refreshToken(realm, refreshTokenRequest);
 
         return response;
+    }
+    
+    @PostMapping("/{realm}/users/{id}/restPassword")
+    public void resetPassword(@PathVariable("realm") String realm, @PathVariable("id") String id, @RequestBody String resetPasswordRequest) throws Exception {
+        log.info("Executing resetPassword");
+                        
+        RealmResource realmResource = KeycloakAdminApiConfig.getInstance().realm(realm);
+		UsersResource usersResource = realmResource.users();
+
+		UserResource userResource = usersResource.get(id);
+		
+	    // set user password
+	    CredentialRepresentation credentialRepresentation = new CredentialRepresentation();
+	    credentialRepresentation.setType(CredentialRepresentation.PASSWORD);
+	    credentialRepresentation.setTemporary(false);
+	    credentialRepresentation.setValue(resetPasswordRequest);
+	    	    
+	    userResource.resetPassword(credentialRepresentation);
     }
     
     @PostMapping("/{realm}/{refreshToken}/logout")
@@ -117,22 +140,85 @@ public class UserController {
 	public String createUser(@PathVariable("realm") String realm, @RequestBody UserRequest userRequest) {
 		log.info("Executing createUser");
 		
-		UsersResource usersResource = KeycloakAdminApiConfig.getInstance().realm(realm).users();
+		RealmResource realmResource = KeycloakAdminApiConfig.getInstance().realm(realm);
+		UsersResource usersResource = realmResource.users();
 		
 	   	UserRepresentation user = new UserRepresentation();
-	    user.setEnabled(userRequest.isEnabled());
 	    user.setUsername(userRequest.getUsername());
 	    user.setFirstName(userRequest.getFirstName());
 	    user.setLastName(userRequest.getLastName());
 	    user.setEmail(userRequest.getEmail());
+	    user.setCredentials(new ArrayList<>());
+	    user.setEnabled(userRequest.isEnabled());
 	    
 	    for (Entry<String, List<String>> entry : userRequest.getAttributes().entrySet()) {	    	
 	    	user.setAttributes(Collections.singletonMap(entry.getKey(), entry.getValue()));
 	    }
 	    	         
+	    // create user
 	    Response response = usersResource.create(user);
+	    		    
+	    // get user resource
+	    String userId = CreatedResponseUtil.getCreatedId(response);
+	    UserResource userResource = usersResource.get(userId);
+	    	    	    	    
+	    // assign Realm Roles to user
+	    if (userRequest.getRealmRoles() != null) {
+		    List<RoleRepresentation> roleRealmRepresentationAvailable = userResource.roles().realmLevel().listAvailable();
+		    List<RoleRepresentation> roleRealmRepresentationRequest = new ArrayList<RoleRepresentation>();
+		    
+		    // set realm roles available to user
+		    for (String userRole : userRequest.getRealmRoles()) {
+			    for (RoleRepresentation roleRepresentation : roleRealmRepresentationAvailable) {
+			      if (roleRepresentation.getName().equals(userRole)) {
+			    	  roleRealmRepresentationRequest.add(roleRepresentation);		          		         
+			       }
+			    }
+		    }
+		    
+		    // add realm roles to user
+		    userResource.roles().realmLevel().add(roleRealmRepresentationRequest);
+	    }
 	    
-	    return CreatedResponseUtil.getCreatedId(response);	    
+	    // assign Client Roles to user
+	    if (userRequest.getClientRoles() != null) {	    	    
+		    List<RoleRepresentation> roleClientRepresentationRequest = new ArrayList<RoleRepresentation>();
+		    
+		    for (Entry<String, List<String>> entry : userRequest.getClientRoles().entrySet()) {
+			    // get client Id by name
+		    	List<ClientRepresentation> clientRepresentations =  realmResource.clients().findByClientId(entry.getKey());
+		    			
+		    	if (clientRepresentations.size() > 0) {
+			    	ClientRepresentation clientRepresentation = realmResource.clients().findByClientId(entry.getKey()).get(0);
+				    String clientId = clientRepresentation.getId();
+			    	
+				    // get client available roles
+			    	List<RoleRepresentation> roleClientRepresentationAvailable = userResource.roles().clientLevel(clientId).listAvailable();
+			    	
+			    	// set client roles to user
+			    	for (RoleRepresentation roleRepresentation : roleClientRepresentationAvailable) {
+			    		for (String clientRole : entry.getValue()) {	
+			    			if (roleRepresentation.getName().equals(clientRole)) {				    	  
+						    	 roleClientRepresentationRequest.add(roleRepresentation);
+						    }
+			    		}
+			    	}
+		    			    
+			    	// add client roles to user
+			    	userResource.roles().clientLevel(clientId).add(roleClientRepresentationRequest);
+		    	}
+		    }		    
+	    }
+	    	    
+	    // set user password
+	    CredentialRepresentation credentialRepresentation = new CredentialRepresentation();
+	    credentialRepresentation.setType(CredentialRepresentation.PASSWORD);
+	    credentialRepresentation.setTemporary(false);
+	    credentialRepresentation.setValue(userRequest.getPassword());
+	    	    
+	    userResource.resetPassword(credentialRepresentation);
+	    
+	    return userId;	    
 	}
 
     @PreAuthorize("hasAnyRole('admin', 'operator')")
