@@ -17,28 +17,32 @@ Poc Keycloak Authentication/Authorization SpringBoot Microservice
 ![Create Client](captures/keycloak_client.png "Create Client")
 
 ## Create client roles
-Inside the client we created these roles:
+We must create each roles inside all microservices. These are all common roles inside each client:
 
 - **name**: admin, operator, user
 
-![Create Roles](captures/client_roles.png "Client Roles")
+![Client Roles](captures/client_roles.png "Client Roles")
+
+## Create realm roles
+We are going to group all common client roles inside realm composite roles to assign then to users easily. Only for **admin** user we will add all roles from the client **real-manager** client to access keycloak admin api (user/role management)
+
+![Realm Roles](captures/realm_roles.png "Realm Roles")
 
 ## Create users
-- **name**: admin with roles: **admin** in **admin-api** client and **all roles** in **realm-management** client
-- **name**: operator with role: **operator** in **admin-api** client
-- **name**: user with role: **user** in **admin-api** client
+- **name**: **admin** with composite realm role: **app-admin** and **all roles** in **realm-management** client
+- **name**: **operator** with composite realm role: **app-operator**
+- **name**: **user** with composite realm role: **app-user**
 
-![User Roles](captures/user_roles.png "User Roles")
-
-The **admin** user has **admin** rol in **admin-api** client and **all roles** from **realm-manager** client
+The **admin** user has **app-admin** realm role and **all roles** from **realm-manager** client
 
 ![Realm Manager Roles](captures/roles_real-manager.png "Realm Manager Roles")
 
+The **user** user has **app-user** realm role only
+
 ![Poc Roles](captures/roles_poc.png "Poc Roles")
 
-
 ## Client configuration
-We could obtain the client configuration from client to used insides springboot microserice
+We could obtain the client configuration from client to used inside spring boot microservice
 
 ![Client Configuration](captures/client_config.png "Client Configuration")
 
