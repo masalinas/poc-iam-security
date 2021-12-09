@@ -36,21 +36,30 @@ For the **app-admin** composite role inside **poc** realm
 
 ![Realm Roles](captures/realm_roles.png "Realm Roles")
 
+## Create groups
+To attached roles to user we used groups and create three groups for each role type. The admin group also will have the **realm-manager** roles
+
+The groups creayed are:
+
+- **name**: **group-admin** include **app-admin** composite role and all **realm-management** client role to access keycloak admin api (user/role management)
+- **name**: **group-operator** include **app-operator** composite role
+- **name**: **group-user** include all **app-user** composite role
+
+For the **group-admin** group
+
+![Realm Group](captures/realm-group.png "Realm Group")
+
 ## Create users
 
 The users created are:
 
-- **name**: **admin** user attached to realm role **app-admin** and **all roles** in **realm-management** client to access keycloak admin api (user/role management)
-- **name**: **operator** user attached to realm role **app-operator**
-- **name**: **user** user attached to realm role **app-user**
+- **name**: **admin** user attached to **group-admin** user group
+- **name**: **operator** user attached to **group-operator** user group
+- **name**: **user** user attached to realm role **group-user** user group
 
-The **admin** user with **app-admin** realm role and all roles from **realm-management** client role also attached
+The **admin** user with **group-admin** group joined
 
-![Realm Manager Roles](captures/roles_real-manager.png "Realm Manager Roles")
-
-The **user** user has **app-user** realm role only
-
-![Poc Roles](captures/roles_poc.png "Poc Roles")
+![Realm Manager Roles](captures/group_real-manager.png "Realm Manager Roles")
 
 ## Client configuration
 We could obtain the client configuration from client to used inside spring boot microservice
