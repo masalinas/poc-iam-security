@@ -44,7 +44,7 @@ The users created are:
 - **name**: **operator** user attached to realm role **app-operator**
 - **name**: **user** user attached to realm role **app-user**
 
-The **admin** user with **app-admin** composite role and all roles from **realm-management** client roles attached
+The **admin** user with **app-admin** realm role and all roles from **realm-management** client role also attached
 
 ![Realm Manager Roles](captures/roles_real-manager.png "Realm Manager Roles")
 
