@@ -23,17 +23,23 @@ We must create each roles inside all microservices. These are all common roles i
 
 ![Client Roles](captures/client_roles.png "Client Roles")
 
-## Create realm roles
-We are going to group all common client roles inside realm composite roles to assign then to users easily. Only for **admin** user we will add all roles from the client **real-manager** client to access keycloak admin api (user/role management)
+## Create realm roles (composite roles)
+We are going to group all common client roles inside **realm composite roles** to assign then to users easily. Only for **app-admin** composite role not also group all admin client roles but also all roles from the client **real-manager** to access keycloak admin api (user/role management)
+
+- **name**: **app-admin** include all **admin** client roles
+- **name**: **app-operator** include all **operator** client roles
+- **name**: **app-user** include all **user** client roles
+
+For the **app-admin** compiste role inside **poc** realm
 
 ![Realm Roles](captures/realm_roles.png "Realm Roles")
 
 ## Create users
-- **name**: **admin** with composite realm role: **app-admin** and **all roles** in **realm-management** client
-- **name**: **operator** with composite realm role: **app-operator**
-- **name**: **user** with composite realm role: **app-user**
+- **name**: **admin** user attached to realm role **app-admin** and **all roles** in **realm-management** client
+- **name**: **operator** user attached to realm role **app-operator**
+- **name**: **user** user attached to realm role **app-user**
 
-The **admin** user has **app-admin** realm role and **all roles** from **realm-manager** client
+The **admin** user with all roles attached
 
 ![Realm Manager Roles](captures/roles_real-manager.png "Realm Manager Roles")
 
