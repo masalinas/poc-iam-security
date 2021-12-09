@@ -48,7 +48,7 @@ The **admin** user with **app-admin** composite role and all roles from **realm-
 
 ![Realm Manager Roles](captures/roles_real-manager.png "Realm Manager Roles")
 
-The user **user** has **app-user** realm role only
+The **user** user has **app-user** realm role only
 
 ![Poc Roles](captures/roles_poc.png "Poc Roles")
 
