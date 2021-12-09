@@ -12,7 +12,7 @@ Poc Keycloak Authentication/Authorization SpringBoot Microservice
 ## Create client
 
 - **Name**: admin-api
-- **Root URL**: http://localhost:8081 (This is the domain where microservice is running)
+- **Root URL**: http://localhost:8081 (This is the domain where security microservice is running)
 
 ![Create Client](captures/keycloak_client.png "Create Client")
 
