@@ -136,7 +136,7 @@ public class UserController {
     	return usersResource.get(id).roles().getAll();
     }
 	
-    @PreAuthorize("hasAnyRole('admin', 'operator')")
+    @PreAuthorize("hasAnyRole('admin')")
 	@RequestMapping(value = "/{realm}/users", method = RequestMethod.POST)
 	public String createUser(@PathVariable("realm") String realm, @RequestBody UserRequest userRequest) {
 		log.info("Executing create User");
@@ -245,7 +245,7 @@ public class UserController {
 	    userResource.update(user);
 	}
 	
-    @PreAuthorize("hasAnyRole('admin', 'operator')")
+    @PreAuthorize("hasAnyRole('admin')")
 	@RequestMapping(value = "/{realm}/users/{id}", method = RequestMethod.DELETE)
 	public int deleteUser(@PathVariable("realm") String realm, @PathVariable("id") String id) {
 		log.info("Executing delete User");
