@@ -69,7 +69,7 @@ public class UserController {
     
     @PostMapping("/{realm}/users/{id}/resetPassword")
     public void resetPassword(@PathVariable("realm") String realm, @PathVariable("id") String id, @RequestBody String resetPasswordRequest) throws Exception {
-        log.info("Executing reset Password");
+        log.info("Executing Reset Password");
                         
         RealmResource realmResource = KeycloakAdminApiConfig.getInstance().realm(realm);
 		UsersResource usersResource = realmResource.users();
@@ -97,7 +97,7 @@ public class UserController {
     @PreAuthorize("hasAnyRole('admin')")
 	@RequestMapping(value = "/{realm}/clients", method = RequestMethod.GET)
     public List<ClientRepresentation> getClients(@PathVariable("realm") String realm) throws Exception {
-        log.info("Executing get Clients");
+        log.info("Executing Get Clients");
                     	
     	ClientsResource clientsResource = KeycloakAdminApiConfig.getInstance().realm(realm).clients();
     	
@@ -108,7 +108,7 @@ public class UserController {
     //@PreAuthorize("hasAnyRole('admin','operator', 'user')")    
 	@RequestMapping(value = "/{realm}/users", method = RequestMethod.GET)
     public List<UserRepresentation> getUsers(@PathVariable("realm") String realm) throws Exception {
-        log.info("Executing get Users");
+        log.info("Executing Get Users");
                 
     	UsersResource usersResource = KeycloakAdminApiConfig.getInstance().realm(realm).users();    	
     	
@@ -128,7 +128,7 @@ public class UserController {
     @PreAuthorize("hasAnyRole('admin','operator', 'user')")
 	@RequestMapping(value = "/{realm}/users/{id}/roles", method = RequestMethod.GET)
     public MappingsRepresentation getRoles(@PathVariable("realm") String realm, @PathVariable("id") String id) throws Exception {
-        log.info("Executing get Roles");
+        log.info("Executing Get Roles");
                     	
     	UsersResource usersResource = KeycloakAdminApiConfig.getInstance().realm(realm).users();
 
@@ -138,7 +138,7 @@ public class UserController {
     @PreAuthorize("hasAnyRole('admin')")
 	@RequestMapping(value = "/{realm}/users", method = RequestMethod.POST)
 	public String createUser(@PathVariable("realm") String realm, @RequestBody UserRequest userRequest) {
-		log.info("Executing create User");
+		log.info("Executing Create User");
 		
 		RealmResource realmResource = KeycloakAdminApiConfig.getInstance().realm(realm);
 		UsersResource usersResource = realmResource.users();
@@ -221,7 +221,7 @@ public class UserController {
     @PreAuthorize("hasAnyRole('admin', 'operator')")
 	@RequestMapping(value = "/{realm}/users/{id}", method = RequestMethod.PUT)
 	public void updateUser(@PathVariable("realm") String realm, @PathVariable("id") String id, @RequestBody UserRequest userRequest) {
-		log.info("Executing update User");
+		log.info("Executing Update User");
 		
 		UsersResource usersResource = KeycloakAdminApiConfig.getInstance().realm(realm).users();
 			 
@@ -244,7 +244,7 @@ public class UserController {
     @PreAuthorize("hasAnyRole('admin')")
 	@RequestMapping(value = "/{realm}/users/{id}", method = RequestMethod.DELETE)
 	public int deleteUser(@PathVariable("realm") String realm, @PathVariable("id") String id) {
-		log.info("Executing delete User");
+		log.info("Executing dDelete User");
 		
 		UsersResource usersResource = KeycloakAdminApiConfig.getInstance().realm(realm).users();
 			    	         
