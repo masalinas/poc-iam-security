@@ -121,8 +121,7 @@ public class UserController {
         log.info("Executing get User by Id");
                 
     	UsersResource usersResource = KeycloakAdminApiConfig.getInstance().realm(realm).users();
-    	
-    	    	    
+    	    	    	    
     	return usersResource.get(id).toRepresentation();       
     }
 	
@@ -150,12 +149,9 @@ public class UserController {
 	    user.setLastName(userRequest.getLastName());
 	    user.setEmail(userRequest.getEmail());
 	    user.setCredentials(new ArrayList<>());
+	    user.setAttributes(userRequest.getAttributes());
 	    user.setEnabled(userRequest.isEnabled());
-	    
-	    for (Entry<String, List<String>> entry : userRequest.getAttributes().entrySet()) {	    	
-	    	user.setAttributes(Collections.singletonMap(entry.getKey(), entry.getValue()));
-	    }
-	    	         
+	    	           
 	    // create user
 	    Response response = usersResource.create(user);
 	    		    

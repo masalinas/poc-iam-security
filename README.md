@@ -5,11 +5,13 @@ Poc Keycloak Authentication/Authorization SpringBoot Microservice
 
 ## Create realm
 
+The realm represent the organization security group where we will create: users, roles, groups and clients
+
 - **Name**: poc
 
 ![Create Realm](captures/keycloak_realm.png "Create Realm")
 
-## Create client
+## Create clients
 
 - **Name**: admin-api
 - **Root URL**: http://localhost:8081 (This is the domain where security microservice is running)
@@ -17,22 +19,22 @@ Poc Keycloak Authentication/Authorization SpringBoot Microservice
 ![Create Client](captures/keycloak_client.png "Create Client")
 
 ## Create client roles
-We must create each roles inside all microservices. These are all common roles inside each client:
+We must create each roles inside all microservices (admin-api, business-api and business-detail.api). These are all common roles inside each client:
 
 - **name**: admin, operator, user
 
 ![Client Roles](captures/client_roles.png "Client Roles")
 
 ## Create realm roles (composite roles)
-We are going to group all common client roles inside **realm composite roles** to assign then to users easily.
+We are going to group all common client roles inside **realm composite roles** to assign then to user groups easily.
 
-The roles created are:
+The composite roles created inside realm **poc** are:
 
 - **name**: **app-admin** include all **admin** client roles
 - **name**: **app-operator** include all **operator** client roles
 - **name**: **app-user** include all **user** client roles
 
-For the **app-admin** composite role inside **poc** realm
+For example, the **app-admin** composite role inside **poc** realm
 
 ![Realm Roles](captures/realm_roles.png "Realm Roles")
 
@@ -51,7 +53,7 @@ For the **group-admin** group
 
 ## Create users
 
-The users created are:
+The users created by default are:
 
 - **name**: **admin** user attached to **group-admin** user group
 - **name**: **operator** user attached to **group-operator** user group
@@ -60,6 +62,19 @@ The users created are:
 The **admin** user with **group-admin** group joined
 
 ![Realm Manager Roles](captures/group_real-manager.png "Realm Manager Roles")
+
+## Token Claims configuration
+We are going to add some extra claims (attributes inside access token) for the client **admin-api** using mappers client
+
+![Token Claims](captures/claims_token.png "Token Claims")
+
+The token claim phoneNumber it's a defaulr mapper
+
+![Phone Claim Mapper](captures/phone_claim_mapper.png "Phone Claim Mapper")
+
+But the department it's a custom claim mapper
+
+![Department Claim Mapper](captures/department_claim_mapper.png "Department Claim Mapper")
 
 ## Client configuration
 We could obtain the client configuration from client to used inside spring boot microservice
