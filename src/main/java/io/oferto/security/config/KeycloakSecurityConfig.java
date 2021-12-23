@@ -36,10 +36,10 @@ public class KeycloakSecurityConfig extends KeycloakWebSecurityConfigurerAdapter
         
         http.csrf().disable()
         	.cors().disable()
-                .authorizeRequests()
-                .antMatchers("/iam/**/login", "/iam/**/logout", "/iam/**/refresh").permitAll()
-                .anyRequest()
-                .authenticated();
+            .authorizeRequests()
+            .antMatchers("/iam/**/login", "/iam/**/logout", "/iam/**/refresh").permitAll()
+            .anyRequest()
+            .authenticated();
         
       //Custom error handler
       http.exceptionHandling().accessDeniedHandler(restAccessDeniedHandler);        
